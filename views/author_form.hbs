@@ -1,0 +1,27 @@
+<h1>{{title}}</h1>
+<form method="Post" action="">
+    <div class="form-group">
+        <label for="first_name">First Name:
+            <input id="first_name" class="form-control" type="text" placeholder='First name (Christian) last' name='first_name' required='true'{{#if (ifEquality undefined author)}} value=""{{else}} value="{{author.first_name}}"{{/if}}/>
+        </label>
+        <label for='family_name'>Family Name:
+            <input id='family_name' class="form-control" type="text" placeholder='Family name (surname)' name='family_name' required='true' {{#if (ifEquality undefined author)}} value=""{{else}} value="{{author.family_name}}"{{/if}}/>
+        </label>
+    </div>
+    <div>
+        <label for="date_of_birth">Date of birth:
+            <input id="date_of_birth" class="form-control" type="Data" placeholder='dd/mm/yyyy'  name='date_of_birth' {{#if (ifEquality undefined author)}} value=""{{else}} value="{{author.date_of_birth}}"{{/if}}/>
+        </label>
+        <label for="date_of_death">Date of birth:
+            <input id="date_of_deathh" class="form-control" type="Data" placeholder='dd/mm/yyyy'  name='date_of_death' {{#if (ifEquality undefined author)}} value=""{{else}} value="{{author.date_of_death}}"{{/if}}/>
+        </label>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+{{#if errors}}
+<ul>
+    {{#each errors}}
+    <li>{{this.msg}}</li>
+    {{/each}}
+</ul>
+{{/if}}
